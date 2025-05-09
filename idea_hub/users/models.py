@@ -98,7 +98,7 @@ class Funder(models.Model):
     ]
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # ideas_supported = models.ManyToManyField('Idea', blank=True)  # Assuming Idea model exists
+    ideas_supported = models.ManyToManyField('ideas.Idea', blank=True)  # links to Idea model in 'ideas' app
     industries_of_interest = ArrayField(models.CharField(max_length=100), blank=True, default=list)
     investment_type = models.CharField(max_length=20, choices=INVESTMENT_TYPE_CHOICES)
     investment_size = models.CharField(max_length=20, choices=INVESTMENT_SIZE_CHOICES)
